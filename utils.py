@@ -24,6 +24,10 @@ def xprint(err,args):
 
 
 # run bash command
+# tag: logs tag to use
+# dir: optional. cd into this directory before running cmd
+# cmd: command to use
+# silent: if not zeor, success / failure logs will not be printed.
 def bash(tag,dir,*cmd,silent = 0):
     
     ret = SUCCESS

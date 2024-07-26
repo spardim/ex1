@@ -1,7 +1,7 @@
-# Example use of the project
+# Example use of the excercise
 
 ## Request
-Post this json to http://127.0.0.1:8000/summarize:
+Post this json to http://127.0.0.1:8000/summarize
 
     {"text":"עשרת שחקני הכדורגל הטובים בעולם כיום הם"}
 
