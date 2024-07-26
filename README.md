@@ -3,7 +3,7 @@
 
 ## Background
 
-1. I have no previous experience with any of the subjects introduced here, including FastAPI.
+1. The topics introduced in this exercise are new to me, including FastAPI.
 2. I have some work experience with Python.
 
 
@@ -26,6 +26,7 @@ I was using:
 1. Visual code.
 2. Postman for posting requests.
 3. Python v3.10.
+4. A specific commit from llama.cpp. For some reason when I took the latest, it did not build properly. Commit is be0cfb41752551a4680ee7dfd29f2a05b50db442.
 
 
 ## Work effort
