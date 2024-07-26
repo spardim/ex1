@@ -35,7 +35,7 @@ I was using:
 
 Roughly, trying to solve the streaming issue is responsible for around 40% of the work effort done. This is still not solved. See Streaming below.
 
-## Known Issues
+## Known issues
 
 1. When using deploy.py, if a required package missing the script will try to install it but even if it succeeds, you'll need to re-run deploy.py for the changes to take effect. I've searched several solutions for this, one of them is coded in utils.install_and_import() but non really worked.
 
@@ -69,7 +69,7 @@ So, currently, the request is waiting until all the reply is generated before ge
 
 https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse
 
-## Example usgae
+## Example usage
 
 See [examples.md](examples.md)
 
