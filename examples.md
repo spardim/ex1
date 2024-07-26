@@ -1,4 +1,4 @@
-# Example use of the excercise
+# Example use of the exercise
 
 ## Request
 Post this json to http://127.0.0.1:8000/summarize
