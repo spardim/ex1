@@ -6,6 +6,19 @@
 1. I have no previous experiance with any of the subjects introduced here, including FastAPI.
 2. I have some work experiance with Python.
 
+
+## Usage
+
+1. Edit [consts.py](consts.py) to suite your work environmwnt
+2. To deploy
+
+        python3.10 ./deploy.py
+
+3. To run:
+
+        fastapi dev ./main.py
+
+
 ## Work environment
 
 I was using:
@@ -38,7 +51,7 @@ So, currently, the request is waiting untill all the reply is generated before g
 ### Some of the stuff I tried was
 1. Using a regular browser instead of Postman thinking it might not support event streaming.
 2. Using FastAPI underlaying web directly and passing command line argumets to it to disable any caching of results. For example, I was trying to use: uvicorn main:app --host 0.0.0.0 --port 8000 --h11-max-incomplete-event-size 5.
-4. Using verious combinations of async / non async functions for the main end-point and the Generator used.
+4. Using verious combinations of async / non async functions for the main end-point and the Generator used. I need to read more on this topic.
 5. Using several llama.cpp API's like create_completion() and create_chat_completion().
 6. Trying by-the-book tutorial samples from the internet. None worked.
 
@@ -47,7 +60,6 @@ So, currently, the request is waiting untill all the reply is generated before g
 - https://github.com/abetlen/llama-cpp-python/discussions/319
 - https://stackademic.com/blog/streaming-llm-responses-using-fastapi-deb575554397
 - https://dev.to/ashraful/fastapi-streaming-response-39c5
-- https://github.com/tiangolo/fastapi/discussions/10701
 
 ### FastAPI doc sample that is also NOT working as-is
 https://github.com/tiangolo/fastapi/discussions/10701
@@ -55,4 +67,4 @@ https://github.com/tiangolo/fastapi/discussions/10701
 
 ## Example usgae
 
-See [Examples.md](examples.md)
+See [examples.md](examples.md)
