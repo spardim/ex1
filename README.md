@@ -10,7 +10,7 @@
 ## Usage
 
 1. Edit [consts.py](consts.py) to suite your work environment
-2. To deploy
+2. To deploy:
 
         python3.10 ./deploy.py
 
@@ -23,13 +23,13 @@
 
 I was using:
 
-1. Visual code with python support.
+1. Visual code.
 2. Postman for posting requests.
 3. Python v3.10.
 
 
 ## Work effort
-1. 19/07/2024 - First work day. Few hours on Part1. Got the two models to work.
+1. 19/07/2024 - First half work-day. Few hours on Part1. Got the two models to work.
 2. 25/07/2024 - Second day of work. full work day. Part2. Creating the FastAPI interface, deploy script and struggling with the streaming problem.
 3. 26/07/2024 - Third day of work. full work day. Trying more on the streaming problem, cleanups and uploading to github.
 
@@ -55,7 +55,7 @@ So, currently, the request is waiting until all the reply is generated before ge
 5. Using several llama.cpp API's like create_completion() and create_chat_completion().
 6. Trying by-the-book tutorial samples from the internet. None worked.
 
-### Some of the references I visited for this problem
+### Few references
 - https://github.com/run-llama/llama_index/issues/10517
 - https://github.com/abetlen/llama-cpp-python/discussions/319
 - https://stackademic.com/blog/streaming-llm-responses-using-fastapi-deb575554397
