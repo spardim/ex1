@@ -60,11 +60,17 @@ So, currently, the request is waiting untill all the reply is generated before g
 - https://github.com/abetlen/llama-cpp-python/discussions/319
 - https://stackademic.com/blog/streaming-llm-responses-using-fastapi-deb575554397
 - https://dev.to/ashraful/fastapi-streaming-response-39c5
+- https://github.com/tiangolo/fastapi/discussions/10701
+- https://stackoverflow.com/questions/75740652/fastapi-streamingresponse-not-streaming-with-generator-function
+- https://www.vidavolta.io/streaming-with-fastapi/
+
 
 ### FastAPI doc sample that is also NOT working as-is
-https://github.com/tiangolo/fastapi/discussions/10701
 
+https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse
 
 ## Example usgae
 
 See [examples.md](examples.md)
+
+
