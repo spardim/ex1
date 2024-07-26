@@ -20,6 +20,8 @@ I was using:
 2. 25/07/2024 - Second day of work. full work day. Part2. Creating the FastAPI interface, deploy script and struggling with the streaming problem.
 3. 26/07/2024 - Third day of work. full work day. Trying more on the streaming problem, cleanups and uploading to github.
 
+Roughly, trying to solve the streaming issue is responsible for around 40% of the work efffort done. This is still not solved. See Streaming below.
+
 ## Known Issues
 
 1. When using deploy.py, if a required packageis missing the script will try to install it but even if it succeeds, you'll need to re-run deploy.py for the changes to take effect. I've searched several solutions for this, one of them is coded in utils.install_and_import() but non really worked.
@@ -51,4 +53,6 @@ So, currently, the request is waiting untill all the reply is generated before g
 https://github.com/tiangolo/fastapi/discussions/10701
 
 
+## Example usgae
 
+See [Examples.md](examples.md)
