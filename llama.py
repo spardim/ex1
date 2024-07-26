@@ -5,6 +5,9 @@ from llama_cpp import Llama
 
 global g_llm
 
+# call init() before using this package
+# model: the model name to use
+# returns: zero on success, non-zero on failures.
 def init(model):
     
     global g_llm
@@ -17,14 +20,23 @@ def init(model):
     
     return err
 
-def cli(text,gguf,n):
+
+# run llama-cli
+# returns: zero on success, non-zero on failures.
+# text: the text to prompt with
+# gguf: the model path to use
+# n: limit result tokens.
+def cli(text,gguf,n=0):
 
     err = SUCCESS
-    # err = bash("running llama",LLAMA_DIR,"./llama-cli","--n-gpu-layers","0","-m","../Phi-3-mini-4k-instruct-q4.gguf","-p",text,"-n","40")
-    err = bash("running llama",consts.LLAMA_DIR,"./llama-cli","--n-gpu-layers","0","-m",gguf,"-p",text,"-n",str(n))
+    if (n > 0):
+        err = bash("running llama",consts.LLAMA_DIR,"./llama-cli","--n-gpu-layers","0","-m",gguf,"-p",text,"-n",str(n))
+    else:
+        err = bash("running llama",consts.LLAMA_DIR,"./llama-cli","--n-gpu-layers","0","-m",gguf,"-p",text)
     return err
 
 
+# returns a generator from stream_data
 def simple_streamer(stream_data) -> Generator:
     
     for chunk in stream_data:
@@ -35,22 +47,8 @@ def simple_streamer(stream_data) -> Generator:
         elif 'content' in delta:
             yield delta['content']
 
+# execute a chat using the given text
 def chat(text):
-
-    # output = llm("Q: Name the planets in the solar system? A: ", # Prompt
-    #   max_tokens=32, # Generate up to 32 tokens, set to None to generate up to the end of the context window
-    #   stop=["Q:", "\n"], # Stop generating just before the model would generate a new question
-    #   echo=True # Echo the prompt back in the output
-    # ) # Generate a completion, can also call create_completion
-
-    # output: Iterator[CreateCompletionStreamResponse]
-
-    # output = llm.create_completion(trans_text, # Prompt
-    #   max_tokens=128, # Generate up to 32 tokens, set to None to generate up to the end of the context window
-    #   stream=True,
-    #   stop=["Q:", "\n"], # Stop generating just before the model would generate a new question
-    #   echo=True # Echo the prompt back in the output
-    # ) # Generate a completion, can also call create_completion
 
     output = g_llm.create_chat_completion(
         messages=[

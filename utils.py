@@ -3,8 +3,6 @@ import os
 import subprocess
 import sys
 
-from enum import Enum
-
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -55,6 +53,8 @@ def bash(tag,dir,*cmd,silent = 0):
 
     return ret
 
+# use to refresh installed packages.
+# --> not working currently.
 def install_and_import(package):
     import importlib
     try:

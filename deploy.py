@@ -7,6 +7,9 @@ import llama
 from utils import *
 import consts
 
+# setup llama.cpp.
+# hash: optional commit hash to use. may be None.
+# returns: zero on success, non-zero on failures.
 def setup_llama(hash):
     
     err = SUCCESS
@@ -23,10 +26,14 @@ def setup_llama(hash):
             err = bash("building llama",consts.LLAMA_DIR,"make") 
     if (not err): 
         err = llama.cli("the weather today is",consts.MODEL_PATH,10)
-        # err = bash("varifying llama",consts.LLAMA_DIR,"./llama-cli","--n-gpu-layers","0","-m","../../Phi-3-mini-4k-instruct-q4.gguf","-p","\"the weather today is\"","-n","10")
+        if (not err):
+            xprint(err,f"llama.cpp verification done. err?:{err}")
+
 
     return err
 
+# setup FB nllb
+# returns: zero on success, non-zero on failures.
 def setup_nllb():
 
     err = SUCCESS
@@ -45,7 +52,7 @@ def setup_nllb():
         err = bash("installing PyTorch",None,consts.PIP,"install","torch","torchvision","torchaudio")
 
     # need to refresh the installed packages.
-    # this still does not work, so you need to rerun the script in case of a missing dependency
+    # this still does not work, so you need to re-run deploy.py in case of a missing dependency
     # importlib.util.find_spec("torch", package=None)
 
     if (not err): 
@@ -56,6 +63,8 @@ def setup_nllb():
 
     return err
 
+# main entry point.
+# will try to setup and verify llama.cpp from source code and setup and verify the FB nllb package.
 def main():
     
     err = SUCCESS

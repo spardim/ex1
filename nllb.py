@@ -1,39 +1,12 @@
-# # Use a pipeline as a high-level helper
-# from transformers import pipeline
-
-# print("starting...")
-
-# pipe = pipeline("translation", model="facebook/nllb-200-distilled-600M")
-
-# pipe("This restaurant is awesone")
-
-# print("done")
-
-# -OR-------------------------------------
-
-# # Load model directly
-# from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-
-# tokenizer = AutoTokenizer.from_pretrained("facebook/nllb-200-distilled-600M")
-# model = AutoModelForSeq2SeqLM.from_pretrained("facebook/nllb-200-distilled-600M")
-
-# # translate Hindi to French
-# hi_text = "जीवन एक चॉकलेट बॉक्स की तरह है।"
-# tokenizer.src_lang = "hi"
-# encoded_hi = tokenizer(hi_text, return_tensors="pt")
-# generated_tokens = model.generate(**encoded_hi, forced_bos_token_id=tokenizer.get_lang_id("en"))
-# tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
-# # "La vie est comme une boîte de chocolat."
-
-
-# ---------------------------------------
-
 from utils import *
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 global g_tokenizer
 global g_model
 
+# call init() before using this package
+# name: model name to use
+# returns: zero on success, non-zero on failures.
 def init(name):
 
     global g_tokenizer
@@ -48,12 +21,18 @@ def init(name):
 
     return SUCCESS
 
-# returns True on success, False otherwise
+# validate translation is correct
+# article: text to translate
+# target_lang: target language
+# expected_result: expected result
+# returns: True on success, False otherwise
 def validate(article,target_lang,expected_result):
     result = translate(article,target_lang)
     return (result.lower() == expected_result.lower())
 
 
+# translate givven article to target_lang
+# returns: the resulting translation
 def translate(article,target_lang):
 
     print(f"translating \"{article}\" to {target_lang}...")
